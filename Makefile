@@ -27,7 +27,7 @@ $(BUILD)/$(TARGET).elf: source/main.c source/audio.c source/catalog.c include/au
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ source/main.c source/audio.c source/catalog.c $(LIBS)
 
 $(BUILD)/icon.icn: assets/icon.png | $(BUILD)
-	"$(BANNERTOOL)" makesmdh -s "SHIELD OST Archives" -l "Lecteur MP3 et bibliotheques OST locales" -p "Shield-77" -i $< -o $@
+	"$(BANNERTOOL)" makesmdh -s "SHIELD OST Archives" -l "Archives audio en ligne" -p "Shield-77" -i $< -o $@
 
 $(BUILD)/banner.bnr: assets/banner.png assets/banner.wav | $(BUILD)
 	"$(BANNERTOOL)" makebanner -i assets/banner.png -a assets/banner.wav -o $@
