@@ -18,6 +18,7 @@ static uint64_t message_until;
 static uint32_t navy, panel, raised, cyan, white, muted, amber, green;
 static bool options_open;
 static int theme_choice;
+static int guide_page;
 
 static void set_theme(int choice) {
     theme_choice=choice;
@@ -225,6 +226,26 @@ static void draw_bottom(void) {
     C2D_TargetClear(bottom,navy);
     if (options_open) {
         round_rect(9,8,302,224,12,panel);
+        if (guide_page) {
+            label(guide_page==1 ? "GUIDE  1/2" : "CREDITS  2/2",20,16,.72f,280,white);
+            if (guide_page==1) {
+                label("Deux bibliotheques : 3DS et Wii U",20,53,.49f,280,cyan);
+                label("La recherche couvre les deux.",20,79,.46f,280,white);
+                label("A : lire   X : pause   B : arreter",20,105,.44f,280,white);
+                label("SELECT : options   START : quitter",20,131,.43f,280,white);
+                label("Profil Archive encore en attente :",20,166,.43f,280,muted);
+                label("aucun telechargement pour l'instant.",20,184,.43f,280,muted);
+            } else {
+                label("Idee et archives : Neo Foxy76",20,53,.46f,280,cyan);
+                label("Conception : Shield-77",20,80,.46f,280,white);
+                label("Code : assistance Codex / OpenAI",20,107,.44f,280,white);
+                label("Audio : SHIELD DJ Lite + minimp3",20,134,.44f,280,white);
+                label("Code GPLv3 ; minimp3 CC0.",20,163,.44f,280,muted);
+                label("Aucun audio tiers n'est inclus.",20,183,.44f,280,muted);
+            }
+            label("B : retour             A : suivant",20,215,.42f,280,white);
+            return;
+        }
         label("OPTIONS",20,16,.75f,280,white);
         label("Theme visuel",20,52,.57f,260,cyan);
         round_rect(20,80,280,38,9,theme_choice==0 ? cyan : raised);
@@ -233,7 +254,7 @@ static void draw_bottom(void) {
         label("Noir et blanc",34,134,.59f,250,theme_choice==1 ? navy : white);
         label("Idee et archives : Neo Foxy76",20,174,.43f,276,white);
         label("Futur dossier : sdmc:/download audio",20,193,.42f,276,muted);
-        label("SELECT / B : retour",20,216,.42f,276,muted);
+        label("X/Touch : guide    SELECT/B : retour",20,216,.42f,276,muted);
         return;
     }
     round_rect(9,8,302,37,10,panel);
@@ -301,9 +322,24 @@ int main(void) {
             playing_index=-1;
             say(*audio_error() ? audio_error() : "Lecture terminee.");
         }
-        if (down & KEY_SELECT) options_open=!options_open;
+        if (down & KEY_SELECT) { options_open=!options_open; guide_page=0; }
         if (options_open) {
+            if (guide_page) {
+                if ((down & (KEY_B|KEY_DLEFT)) && guide_page>1) --guide_page;
+                else if (down & (KEY_B|KEY_DLEFT)) guide_page=0;
+                if (down & (KEY_A|KEY_DRIGHT)) guide_page=guide_page<2 ? guide_page+1 : 0;
+                if (down & KEY_TOUCH) {
+                    touchPosition touch; hidTouchRead(&touch);
+                    if (touch.py>=207 && touch.px>=160)
+                        guide_page=guide_page<2 ? guide_page+1 : 0;
+                    else if (touch.py>=207)
+                        guide_page=guide_page>1 ? guide_page-1 : 0;
+                }
+                render();
+                continue;
+            }
             if (down & KEY_B) options_open=false;
+            if (down & KEY_X) guide_page=1;
             if (down & KEY_DUP) { set_theme(0); save_theme(); }
             if (down & KEY_DDOWN) { set_theme(1); save_theme(); }
             if (down & KEY_A) { save_theme(); say("Theme enregistre."); }
@@ -311,6 +347,7 @@ int main(void) {
                 touchPosition touch; hidTouchRead(&touch);
                 if (touch.py>=80 && touch.py<118) { set_theme(0); save_theme(); }
                 if (touch.py>=126 && touch.py<164) { set_theme(1); save_theme(); }
+                if (touch.py>=207 && touch.px<160) guide_page=1;
             }
             render();
             continue;
