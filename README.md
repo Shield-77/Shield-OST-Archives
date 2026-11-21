@@ -14,6 +14,12 @@ SHIELD OST Archives est une application musicale pour 3DS, conçue en priorité 
 Les commandes prévues sont : croix haut/bas pour la liste, A pour lire, X pour pause/reprise, B pour arrêter, SELECT pour les options, Y pour actualiser et START pour quitter. Les onglets et la liste acceptent aussi le tactile. Les commandes de lecture ne peuvent encore être éprouvées avec une archive distante : aucun lien n'est configuré.
 
 Le futur dossier de téléchargement proposé est `sdmc:/download audio`, comme dans SHIELD MP3 Downloader. L'application **n'y écrit rien pour le moment**. Quand le téléchargement sera opérationnel, les MP3 enregistrés devront être des fichiers standards, lisibles ailleurs.
+Ceci est un schema realisee par moi meme :
+
+<img width="1600" height="852" alt="image" src="https://github.com/user-attachments/assets/81fb8c60-c7c5-4f30-abda-21b30b694f53" />
+
+
+
 
 ## Développement et labo
 
