@@ -8,7 +8,7 @@ SHIELD OST Archives est une application musicale pour 3DS, conçue en priorité 
 
 - Écran supérieur : présentation de l'archive sélectionnée, plateforme, collection, taille et progression lorsqu'elles sont connues.
 - Écran inférieur : barre de recherche tactile globale, onglets 3DS/Wii U, résultats, commandes.
-- Thèmes **Bleu cyber** (par défaut) et **Noir et blanc**, dans les options ouvertes avec SELECT.
+- Thèmes **Bleu cyber** (par défaut) et **Noir et blanc**, dans les options ouvertes avec SELECT. Le guide et les crédits sont accessibles avec X depuis ces options.
 - Rendu Citro2D avec panneaux arrondis et texte tronqué pour rester dans les écrans.
 
 Les commandes prévues sont : croix haut/bas pour la liste, A pour lire, X pour pause/reprise, B pour arrêter, SELECT pour les options, Y pour actualiser et START pour quitter. Les onglets et la liste acceptent aussi le tactile. Les commandes de lecture ne peuvent encore être éprouvées avec une archive distante : aucun lien n'est configuré.
