@@ -1,4 +1,4 @@
-# SHIELD OST Archives
+# SHIELD Archives
 
 SHIELD OST Archives est une application musicale pour 3DS, conçue en priorité pour Old 3DS. Elle présentera les deux bibliothèques **3DS** et **Wii U** d'un profil Internet Archive précis, permettra de chercher dans les deux à la fois, d'écouter et de télécharger les MP3 que notre collaborateur y mettra à disposition.
 
