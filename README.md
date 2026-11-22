@@ -2,7 +2,7 @@
 
 Application audio gratuite pour 3DS, développée en priorité pour Old 3DS. Elle recherche les archives audio publiques d'Internet Archive, affiche leurs pistes et permet une préécoute ou un téléchargement sur la carte SD.
 
-**État : version de développement 0.2.0.** Les tests Windows couvrent les parseurs et les décodeurs ; le comportement réseau, l'affichage et les performances doivent encore être validés sur le matériel avant une version stable. Le nom et les visuels ont changé depuis le prototype « SHIELD OST Archives ». Le Title ID reste `000400000A211000` pour conserver la continuité des installations.
+**État : version de développement 0.2.1.** Les tests Windows couvrent les parseurs et les décodeurs ; le comportement réseau, l'affichage et les performances doivent encore être validés sur le matériel avant une version stable. Le nom et les visuels ont changé depuis le prototype « SHIELD OST Archives ». Le Title ID reste `000400000A211000` pour conserver la continuité des installations.
 
 Le profil et les deux bibliothèques du projet collaboratif ne sont pas encore configurés : leurs liens exacts sont en attente. La recherche de cette version de travail interroge les archives audio publiques. Le schéma d'interface fourni par Shield-77 reste conservé ci-dessous comme référence de conception ; il ne représente pas une capture du build actuel.
 
@@ -12,7 +12,7 @@ Le profil et les deux bibliothèques du projet collaboratif ne sont pas encore c
 
 1. Touchez **Rechercher** (ou la barre supérieure) et saisissez un titre ou un artiste.
 2. Touchez **Audio** pour interroger Internet Archive. **Image** est visible mais désactivé pour le moment.
-3. Choisissez une archive avec la croix et A, ou touchez son nom. L/R change de page.
+3. Choisissez une archive avec la croix et A, ou touchez son numéro puis sa fiche sur l'écran inférieur. L/R change de page.
 4. Dans la liste des pistes, **Y** lance ou arrête une préécoute, **A** propose un téléchargement et **X** propose d'ajouter la piste à la file. **B** revient ou arrête la préécoute. **SELECT** ouvre les options, le guide et la file d'attente ; dans la file, **X** demande confirmation avant le retrait d'une piste. **START** quitte quand aucun transfert important n'est en cours.
 
 Les fichiers téléchargés sont enregistrés sans conversion dans `sdmc:/download audio/`, un dossier partagé avec SHIELD MP3 Downloader. Un fichier partiel reste dans le dossier privé de l'application pendant le transfert et n'est renommé qu'une fois terminé. La file d'attente est conservée sur la carte SD.
@@ -25,7 +25,7 @@ La recherche et les métadonnées proviennent des API publiques d'Internet Archi
 
 Avec devkitARM, libctru, Citro2D, les portlibs 3DS incluant libcurl, `makerom`, `bannertool` et `3dsxtool`, lancer `make`. Les sorties sont `build/ShieldOnlineArchive.cia`, `build/ShieldOnlineArchive.3dsx` et l'ELF associé. Le script `tools/create_assets.ps1` régénère l'icône, la bannière et le bref son de bannière à partir de formes dessinées pour le projet.
 
-Sur GitHub, le code exact de cette version candidate est regroupé dans `ShieldOnlineArchive-source-0.2.0.zip`. Il faut extraire cette archive avant de compiler ; les anciens fichiers du prototype encore affichés à la racine du dépôt ne correspondent pas au CIA candidat.
+Sur GitHub, le code exact de cette version candidate est regroupé dans `ShieldOnlineArchive-source-0.2.1.zip`. Il faut extraire cette archive avant de compiler ; les anciens fichiers du prototype encore affichés à la racine du dépôt ne correspondent pas au CIA candidat.
 
 Le réseau utilise HTTPS avec validation des certificats et n'ouvre que les URL construites pour Internet Archive. Une seule tâche réseau tourne à la fois pour limiter la mémoire et garder la navigation réactive. Les métadonnées et images ont des plafonds de taille. Les décodeurs audio travaillent par blocs et alimentent NDSP sans charger un morceau entier en mémoire.
 
