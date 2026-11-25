@@ -8,6 +8,10 @@ Le profil et les deux bibliothèques du projet collaboratif ne sont pas encore c
 
 ![Schéma initial de SHIELD Online Archive](https://github.com/user-attachments/assets/81fb8c60-c7c5-4f30-abda-21b30b694f53)
 
+## Télécharger
+
+Dernière release expérimentale : [v0.2.4](https://github.com/Shield-77/Shield-Online-Archives/releases/tag/v0.2.4) · [ShieldOnlineArchive.cia](https://github.com/Shield-77/Shield-Online-Archives/releases/download/v0.2.4/ShieldOnlineArchive.cia).
+
 ## Utilisation
 
 1. Touchez **Rechercher** (ou la barre supérieure) et saisissez un titre ou un artiste.
