@@ -8,9 +8,13 @@ Le profil et les deux bibliothèques du projet collaboratif ne sont pas encore c
 
 ![Schéma initial de SHIELD Online Archive](https://github.com/user-attachments/assets/81fb8c60-c7c5-4f30-abda-21b30b694f53)
 
-## Télécharger
+## Télécharger / Download
 
-Dernière release expérimentale : [v0.2.4](https://github.com/Shield-77/Shield-Online-Archives/releases/tag/v0.2.4) · [ShieldOnlineArchive.cia](https://github.com/Shield-77/Shield-Online-Archives/releases/download/v0.2.4/ShieldOnlineArchive.cia).
+**[ShieldOnlineArchive.cia (v0.2.4)](https://github.com/Shield-77/Shield-Online-Archives/releases/download/v0.2.4/ShieldOnlineArchive.cia)** · [Toutes les releases](https://github.com/Shield-77/Shield-Online-Archives/releases)
+
+Sur une 3DS modifiée, ouvrir FBI > Remote Install > Scan QR Code.
+
+<img src="docs/cia-qr.svg" width="220" alt="QR code FBI vers le CIA v0.2.4" />
 
 ## Utilisation
 
@@ -25,7 +29,11 @@ Les formats affichés sont MP3, WAV, FLAC, AAC et M4A. Le décodeur rejette les 
 
 La recherche et les métadonnées proviennent des API publiques d'Internet Archive. Une réponse indisponible ou trop grande est signalée comme telle ; la liste ne crée pas de durée, date ou image fictive. Les contenus trouvés restent sous la responsabilité de leurs déposants et de leurs licences propres. Aucun morceau tiers n'est inclus dans l'application.
 
-## Compilation
+## Documentation technique
+
+Les sections suivantes sont destinées aux personnes souhaitant compiler ou examiner le projet.
+
+### Compilation
 
 Avec devkitARM, libctru, Citro2D, les portlibs 3DS incluant libcurl, `makerom`, `bannertool` et `3dsxtool`, lancer `make`. Les sorties sont `build/ShieldOnlineArchive.cia`, `build/ShieldOnlineArchive.3dsx` et l'ELF associé. Le script `tools/create_assets.ps1` régénère l'icône, la bannière et le bref son de bannière à partir de formes dessinées pour le projet.
 
@@ -33,7 +41,7 @@ Sur GitHub, le code de l’ancienne version candidate 0.2.1 est regroupé dans `
 
 Le réseau utilise HTTPS avec validation des certificats et n'ouvre que les URL construites pour Internet Archive. Une seule tâche réseau tourne à la fois pour limiter la mémoire et garder la navigation réactive. Les métadonnées et images ont des plafonds de taille. Les décodeurs audio travaillent par blocs et alimentent NDSP sans charger un morceau entier en mémoire.
 
-## Tests effectués
+### Tests effectués
 
 - Compilation CIA et 3DSX avec avertissements traités comme erreurs pour le code de l'application.
 - Test Windows du modèle de recherche, des URL et des métadonnées, avec données synthétiques et réponses réelles d'Internet Archive.
@@ -47,3 +55,7 @@ Ces tests ne mesurent pas les performances de la Old 3DS et ne remplacent pas un
 Idée du projet et préparation des archives audio : **Neo Foxy76**. Conception de l'application et direction technique : **Shield-77**. Assistance au développement : **Codex / OpenAI**. Icône, bannière et son de bannière créés pour ce projet.
 
 Code de l'application : [GPL-3.0-or-later](LICENSE). Les composants tiers et leurs licences sont détaillés dans [THIRD_PARTY.md](THIRD_PARTY.md), notamment minimp3, dr_libs, FAAD2, minimp4, stb_image, cJSON et libcurl. **Code from FAAD2 is copyright (c) Nero AG, www.nero.com**.
+
+## Développement
+
+Le code a été généré avec l'aide d'OpenAI Codex, un assistant de programmation par IA. SHIELD-77 conçoit les fonctionnalités et teste les applications sur console lorsque possible.
