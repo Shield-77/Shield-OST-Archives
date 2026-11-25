@@ -2,7 +2,7 @@
 
 Application audio gratuite pour 3DS, développée en priorité pour Old 3DS. Elle recherche les archives audio publiques d'Internet Archive, affiche leurs pistes et permet une préécoute ou un téléchargement sur la carte SD.
 
-**État : version de développement 0.2.1.** Les tests Windows couvrent les parseurs et les décodeurs ; le comportement réseau, l'affichage et les performances doivent encore être validés sur le matériel avant une version stable. Le nom et les visuels ont changé depuis le prototype « SHIELD OST Archives ». Le Title ID reste `000400000A211000` pour conserver la continuité des installations.
+**État : release expérimentale v0.2.4.** La v0.2.4 améliore le démarrage et la reprise des préécoutes MP3/AAC, le calcul du temps effectivement joué et la priorité réseau de la préécoute. Les tests Windows couvrent les parseurs et les décodeurs ; le comportement réseau, l'affichage et les performances doivent encore être validés sur le matériel avant une version stable. Le nom et les visuels ont changé depuis le prototype « SHIELD OST Archives ». Le Title ID reste `000400000A211000` pour conserver la continuité des installations.
 
 Le profil et les deux bibliothèques du projet collaboratif ne sont pas encore configurés : leurs liens exacts sont en attente. La recherche de cette version de travail interroge les archives audio publiques. Le schéma d'interface fourni par Shield-77 reste conservé ci-dessous comme référence de conception ; il ne représente pas une capture du build actuel.
 
@@ -29,7 +29,7 @@ La recherche et les métadonnées proviennent des API publiques d'Internet Archi
 
 Avec devkitARM, libctru, Citro2D, les portlibs 3DS incluant libcurl, `makerom`, `bannertool` et `3dsxtool`, lancer `make`. Les sorties sont `build/ShieldOnlineArchive.cia`, `build/ShieldOnlineArchive.3dsx` et l'ELF associé. Le script `tools/create_assets.ps1` régénère l'icône, la bannière et le bref son de bannière à partir de formes dessinées pour le projet.
 
-Sur GitHub, le code exact de cette version candidate est regroupé dans `ShieldOnlineArchive-source-0.2.1.zip`. Il faut extraire cette archive avant de compiler ; les anciens fichiers du prototype encore affichés à la racine du dépôt ne correspondent pas au CIA candidat.
+Sur GitHub, le code de l’ancienne version candidate 0.2.1 est regroupé dans `ShieldOnlineArchive-source-0.2.1.zip`. Il faut extraire cette archive avant de compiler ; les anciens fichiers du prototype encore affichés à la racine du dépôt ne correspondent pas au CIA candidat.
 
 Le réseau utilise HTTPS avec validation des certificats et n'ouvre que les URL construites pour Internet Archive. Une seule tâche réseau tourne à la fois pour limiter la mémoire et garder la navigation réactive. Les métadonnées et images ont des plafonds de taille. Les décodeurs audio travaillent par blocs et alimentent NDSP sans charger un morceau entier en mémoire.
 
