@@ -8,7 +8,7 @@ Le profil et les deux bibliothèques du projet collaboratif ne sont pas encore c
 
 ![Schéma initial de SHIELD Online Archive](https://github.com/user-attachments/assets/81fb8c60-c7c5-4f30-abda-21b30b694f53)
 
-**État du code public :** l'archive source candidate disponible est en version 0.2.1 ; elle ne correspond pas à la release expérimentale v0.2.4. La synchronisation du source de cette release et sa validation sur console restent nécessaires.
+**État du code public :** les fichiers `source/app_main.c`, `include/`, `vendor/`, le Makefile et les tests correspondent au projet local ayant produit le contenu du CIA v0.2.4. Les empreintes ExeFS et RomFS du CIA local et du CIA publié sont identiques. Les archives `ShieldOnlineArchive-source-0.2.0.zip` et `ShieldOnlineArchive-source-0.2.1.zip`, ainsi que les anciens fichiers `source/main.c` et `source/catalog.c`, restent disponibles pour l'historique mais ne représentent pas la v0.2.4.
 
 ## Télécharger / Download
 
@@ -39,7 +39,7 @@ Les sections suivantes sont destinées aux personnes souhaitant compiler ou exam
 
 Avec devkitARM, libctru, Citro2D, les portlibs 3DS incluant libcurl, `makerom`, `bannertool` et `3dsxtool`, lancer `make`. Les sorties sont `build/ShieldOnlineArchive.cia`, `build/ShieldOnlineArchive.3dsx` et l'ELF associé. Le script `tools/create_assets.ps1` régénère l'icône, la bannière et le bref son de bannière à partir de formes dessinées pour le projet.
 
-Sur GitHub, le code de l’ancienne version candidate 0.2.1 est regroupé dans `ShieldOnlineArchive-source-0.2.1.zip`. Il faut extraire cette archive avant de compiler ; les anciens fichiers du prototype encore affichés à la racine du dépôt ne correspondent pas au CIA candidat.
+Pour compiler la v0.2.4, utiliser les fichiers à la racine du dépôt : le Makefile actuel sélectionne `source/app_main.c` et les dépendances dans `vendor/`. Les archives ZIP 0.2.0 et 0.2.1 sont historiques.
 
 Le réseau utilise HTTPS avec validation des certificats et n'ouvre que les URL construites pour Internet Archive. Une seule tâche réseau tourne à la fois pour limiter la mémoire et garder la navigation réactive. Les métadonnées et images ont des plafonds de taille. Les décodeurs audio travaillent par blocs et alimentent NDSP sans charger un morceau entier en mémoire.
 

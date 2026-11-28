@@ -6,10 +6,13 @@
 typedef struct { void *data_vaddr; int nsamples; int status; } ndspWaveBuf;
 enum { NDSP_WBUF_DONE=0, NDSP_WBUF_QUEUED=1, NDSP_WBUF_PLAYING=2 };
 enum { NDSP_OUTPUT_STEREO=2, NDSP_INTERP_POLYPHASE=2, NDSP_FORMAT_STEREO_PCM16=2 };
+enum { NDSP_CLIP_SOFT=1 };
 #define R_FAILED(value) ((value)<0)
 int ndspInit(void);
 void ndspExit(void);
 void ndspSetOutputMode(int mode);
+void ndspSetMasterVol(float volume);
+void ndspSetClippingMode(int mode);
 void ndspChnReset(int channel);
 void ndspChnSetInterp(int channel,int interp);
 void ndspChnSetFormat(int channel,int format);
@@ -25,4 +28,5 @@ void aptSetSleepAllowed(bool allowed);
 uint64_t osGetTime(void);
 bool fake_drain_one(void);
 uint64_t fake_total_frames(void);
+unsigned fake_peak_pcm(void);
 #endif
