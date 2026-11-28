@@ -11,7 +11,7 @@ Le projet SHIELD Online Archive est distribué sous GPL-3.0-or-later. Les fichie
 | stb_image 2.34 | Décodage des petites pochettes JPEG et PNG | [nothings/stb](https://github.com/nothings/stb), domaine public ou MIT |
 | cJSON | Lecture des réponses JSON | [DaveGamble/cJSON](https://github.com/DaveGamble/cJSON), MIT, copie issue du commit `6d9f2443ab071f86e5d9b43025a40929ec41c46c`. Licence : `vendor/cjson/LICENSE` |
 | libcurl et mbedTLS | HTTPS et validation des certificats | [curl](https://curl.se/) et [Mbed TLS](https://github.com/Mbed-TLS/mbedtls), via les portlibs 3DS ; leurs licences sont conservées par la distribution devkitPro |
-| Autorités de certification | Validation TLS | Bundle PEM issu de l'environnement SHIELD Updater, intégré au programme ; il contient des certificats racines publics |
+| Autorités de certification | Validation TLS | Bundle PEM issu de l'environnement SHIELD Updater, intégré au programme ; il contient des certificats racines publics. La provenance exacte et la version du bundle restent à documenter ; le projet ne revendique pas ces certificats. |
 
 **Code from FAAD2 is copyright (c) Nero AG, www.nero.com**.
 
